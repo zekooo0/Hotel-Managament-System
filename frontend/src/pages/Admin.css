@@ -1,0 +1,199 @@
+body {
+    overflow-x: hidden;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 250px;
+    margin-left: -250px;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+.list-group-item.active {
+    background-color: #f7f7f7;
+    border-color: #f7f7f7;
+    color: black;
+}
+
+@media (min-width: 768px) {
+
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    #menu-toggle{
+        display: block !important;
+    }
+    #sidebar-wrapper {
+        width: 100%;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
+}
+
+
+.container-admin{
+    display: flex;
+justify-content: space-between;}
+
+.admin-add{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+
+#wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 250px;
+    margin-left: -250px;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+
+
+
+
+
+.container-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#add-hotel-form{
+    margin-left: 200px;
+    margin-right: 200px
+
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .card-body img {
+    margin-left: auto;
+    height: auto;
+    object-fit: cover;
+  }
+  .card-hotel-image{
+    width: 40%;
+  }
+  .hotel-info{
+    text-align: start;
+    width: 60%;
+  }
+  .card-body .card-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .card-body .card-text {
+    margin: 0.5rem 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card-body .card-text small {
+    color: #777;
+    font-size: 17px;
+
+  }
+  
+  .card-body .amenities {
+    display: flex;
+    margin: 1rem 0;
+  }
+  
+  .card-body .amenities svg {
+    margin-right: 10px;
+
+  }
+  
+  
+  .btn {
+    margin-top: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #007BFF;
+    border-color: #007BFF;
+  }
+  
+  .btn-danger {
+    background-color: #DC3545;
+    border-color: #DC3545;
+  }
+  .hotel{
+    margin-right: 200px;
+    margin-left: 200px;
+  }
+  .location-room{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+  }
+  .card-text p{
+    margin-bottom: 0px !important;
+  }
+  .amenity{
+    width: 40px;
+margin-right: 10px;
+  }
+  .amenities-card{
+ flex-direction: row !important;
+
+}
