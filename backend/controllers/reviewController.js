@@ -14,8 +14,15 @@ exports.CreateReview = async (req, res) => {
     console.log(error);
   }
 };
-
 exports.GetReviews = async (req, res) => {
+  try {
+    const reviews = await Review.find().populate("user_id", "name");
+    res.json(reviews);
+  } catch (error) {
+    console.log(error);
+  }
+};
+exports.GetReview = async (req, res) => {
   try {
     const { id } = req.params;
     const reviews = await Review.find({ hotel_id: id }).populate(

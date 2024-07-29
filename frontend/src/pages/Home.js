@@ -2,6 +2,7 @@ import "./Home.css";
 
 import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import Rating from "@mui/material/Rating";
 
 import { ReactComponent as GuestIcon } from "../images/profile.svg";
 import RoomCard from "../components/RoomCard";
@@ -15,6 +16,7 @@ import { useAuth } from "../components/AuthContext";
 const Home = () => {
   const navigate = useNavigate();
   const [data, setData] = useState();
+  const [reviews, setReviews] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +30,18 @@ const Home = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/api/reviews`);
+        setReviews(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(reviews);
   const { admin } = useAuth();
   if (admin) {
     navigate("/admin");
@@ -107,29 +121,25 @@ const Home = () => {
 
       <section className="testimonials">
         <h2>What Our Guests Say</h2>
-        <div className="testimonial-list">
-          <div className="testimonial">
-            <GuestIcon />
-            <div className="testimonial-text">
-              <h4>Sarah Lee ⭐⭐⭐⭐⭐ (5.0)</h4>
-              <p>
-                "The Ritz-Carlton, Bali was an absolute dream. The
-                accommodations were luxurious, the staff was exceptional, and
-                the views were breathtaking. I can't wait to return!"
-              </p>
-            </div>
-          </div>
-          <div className="testimonial">
-            <GuestIcon />
-            <div className="testimonial-text">
-              <h4>John Doe ⭐⭐⭐⭐⭐ (5.0)</h4>
-              <p>
-                "Amangiri was a truly unforgettable experience. The stunning
-                desert landscape, the impeccable service, and the luxurious
-                accommodations made for an once-in-a-lifetime getaway."
-              </p>
-            </div>
-          </div>
+        <div className="lg:grid-cols-2 grid grid-cols-1">
+          {reviews &&
+            reviews.map((review) => (
+              <div className=" flex" key={review._id}>
+                <GuestIcon />
+                <div className="testimonial-text">
+                  <h4 className="flex items-center gap-2">
+                    {review.user_id.name}
+                    <Rating
+                      name="simple-controlled"
+                      value={review.rating}
+                      readOnly
+                    />
+                    ({review.rating})
+                  </h4>
+                  <p>{review.comment}</p>
+                </div>
+              </div>
+            ))}
         </div>
       </section>
     </div>

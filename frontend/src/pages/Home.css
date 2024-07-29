@@ -117,3 +117,7 @@
   flex-direction: column;
   justify-content: start;
 }
+
+.MuiRating-iconFilled {
+  color: #f57c00; /* Change this to your desired color */
+}
