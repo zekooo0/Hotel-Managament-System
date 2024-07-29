@@ -63,12 +63,10 @@ router.put("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
     const bookings = await Booking.find({ user_id: id })
       .populate("hotel_id", "name")
       .populate("user_id", "name");
 
-    console.log(bookings);
     res.json({ bookings });
   } catch (error) {
     console.log(error);

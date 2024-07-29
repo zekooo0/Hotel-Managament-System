@@ -27,3 +27,12 @@ exports.GetReviews = async (req, res) => {
     console.log(error);
   }
 };
+exports.GetSpecificReviewForSpecificUser = async (req, res) => {
+  try {
+    const { user_id, hotel_id } = req.params;
+    const review = await Review.findOne({ user_id, hotel_id });
+    res.json(review);
+  } catch (error) {
+    console.log(error);
+  }
+};

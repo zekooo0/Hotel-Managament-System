@@ -21,6 +21,7 @@ const Single = () => {
   const [price, setPrice] = useState(null);
   const [amount, setAmount] = useState(1);
   const [details, setDetails] = useState("");
+  const [alreadyBooked, setAlreadyBooked] = useState(false);
 
   const { user } = useAuth();
 
@@ -67,12 +68,22 @@ const Single = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    if (user && bookings) {
+      const booked = bookings.some(
+        (booking) =>
+          booking.user_id._id.toString() === user._id.toString() &&
+          booking.hotel_id._id.toString() === id.toString()
+      );
+      setAlreadyBooked(booked);
+    }
+  }, [user, bookings, id]);
+
   const alreadyReviewed = reviews?.some(
-    (review) => review.user_id._id === user._id
+    (review) => review.user_id._id.toString() === user._id.toString()
   );
-  const alreadyBooked = bookings?.some(
-    (booking) => booking.user_id._id === user._id
-  );
+
   return (
     <div className="md:px-16 lg:px-32 px-8 py-8">
       {data && (

@@ -10,9 +10,6 @@ import destinationImage1 from "../images/destination1.jpg";
 import destinationImage2 from "../images/destination2.jpg";
 import destinationImage3 from "../images/destination3.jpg";
 import headerImage from "../images/header.jpeg";
-import hotelImage1 from "../images/hotel1.jpg";
-import hotelImage2 from "../images/hotel2.jpg";
-import hotelImage3 from "../images/hotel3.jpg";
 import { useAuth } from "../components/AuthContext";
 
 const Home = () => {
